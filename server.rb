@@ -43,6 +43,88 @@ def get_teams
   teams
 end
 
+def team_wins(team)
+
+  games = [
+  {
+    home_team: "Patriots",
+    away_team: "Broncos",
+    home_score: 7,
+    away_score: 3
+  },
+  {
+    home_team: "Broncos",
+    away_team: "Colts",
+    home_score: 3,
+    away_score: 0
+  },
+  {
+    home_team: "Patriots",
+    away_team: "Colts",
+    home_score: 11,
+    away_score: 7
+  },
+  {
+    home_team: "Steelers",
+    away_team: "Patriots",
+    home_score: 7,
+    away_score: 21
+  }]
+
+  wins = 0
+    games.each do |game|
+      if game[:home_team] == team && game[:home_score] > game[:away_score]
+        wins += 1
+      end
+      if game[:away_team]== team && game[:away_score] > game[:home_score]
+        wins += 1
+      end
+    end
+    wins
+end
+
+def team_losses(team)
+
+  games = [
+  {
+    home_team: "Patriots",
+    away_team: "Broncos",
+    home_score: 7,
+    away_score: 3
+  },
+  {
+    home_team: "Broncos",
+    away_team: "Colts",
+    home_score: 3,
+    away_score: 0
+  },
+  {
+    home_team: "Patriots",
+    away_team: "Colts",
+    home_score: 11,
+    away_score: 7
+  },
+  {
+    home_team: "Steelers",
+    away_team: "Patriots",
+    home_score: 7,
+    away_score: 21
+  }]
+
+  losses = 0
+    games.each do |game|
+      if game[:home_team] == team && game[:home_score] < game[:away_score]
+        losses += 1
+      end
+      if game[:away_team]== team && game[:away_score] < game[:home_score]
+        losses += 1
+      end
+    end
+    losses
+end
+
+
+
 def teams_with_score
 
    games = [
@@ -82,21 +164,9 @@ def teams_with_score
     end
   end
 
-    wins = 0
-  teams.each do |team|
-    games.each do |game|
-      if game[:home_team] == team && game[:home_score] > game[:away_score]
-        wins += 1
-      end
-      if game[:away_team]== team && game[:away_score] > game[:home_score]
-        wins += 1
-      end
-    end
-  end
-
   teams_scores = []
   teams.each do |team|
-    team_score = [team, team_wins(team)]
+    team_score = [team, team_wins(team), team_losses(team)]
     teams_scores << team_score
   end
   teams_scores
@@ -118,6 +188,7 @@ end
 
 get '/teams/:team' do
   @teams = get_teams
+  @teams_scores = teams_with_score
   @team = params[:team]
 
   erb :team
