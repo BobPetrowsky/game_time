@@ -1,0 +1,37 @@
+<!Doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/reset.css">
+    <link rel="stylesheet" type="text/css" href="/app.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="<%= '/' %>"><img src="logo.jpg"></a>
+        </li>
+        <li>
+          <a href="">Teams</a>
+            <ul>
+              <% @teams.each do |team|%>
+              <li>
+                <a href="<%= "/teams/#{team}" %>"><%= team %></a>
+              </li>
+              <% end %>
+            </ul>
+        </li>
+        <li>
+          <a href="<%= '/leader_board' %>">Leader Board</a>
+        </li>
+      </ul>
+    </nav>
+
+
+    <%= yield %>
+
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/app.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>

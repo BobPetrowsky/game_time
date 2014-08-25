@@ -1,0 +1,12 @@
+<section>
+<ul>
+<% counter = 0 %>
+<% @teams_scores.each do |team| %>
+<% counter += 1 %>
+ <li>
+  <%= counter %>. <%= team[0] %>
+   <P>Wins: <%= team[1] %></P>
+ </li>
+ <% end %>
+</ul>
+</section>

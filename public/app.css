@@ -1,0 +1,75 @@
+body {
+  width: 100%;
+  margin: 0 auto;
+  background: url("bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+nav {
+  width: 100%;
+  top: 0;
+  position: fixed;
+}
+
+nav ul {
+  height: 100%;
+  width: 99%;
+  background-color: white;
+  padding-bottom: 8%;
+  border: 5px solid #000070;
+}
+
+nav ul li {
+  float: left;
+  display: block;
+  width: 33.33%;
+  padding-bottom: 2%;
+  padding-top: 2%;
+}
+
+nav ul li a{
+  text-decoration: none;
+  font-size: 3vmax;
+  color: #000070;
+}
+
+nav ul li a img {
+  padding-left: 20%;
+  max-height:30%;
+  max-width:30%;
+  margin-top: -5%;
+  margin-bottom: -5%;
+}
+
+nav ul ul {
+  display: none;
+}
+
+  nav ul li:hover > ul {
+    display: block;
+  }
+
+nav ul ul li {
+    float: none;
+    margin-right: -50%;
+    width: 10%;
+  }
+
+nav ul ul li a {
+  font-size: 2vmax;
+}
+
+section {
+  float: left;
+  background-color: white;
+  padding: 10%;
+  margin-top: 10%;
+  font-size: 2vmax;
+  margin-left: 30%;
+  width: 15%;
+  border: 5px solid #000070;
+  box-shadow: 10px 10px 5px #888888;
+}
